@@ -23,6 +23,11 @@ class Results
         ];
     }
 
+    public function getExperiment()
+    {
+        return $this->experiment;
+    }
+
     protected function getDataKeyName()
     {
         if ($this->experiment->isCandidateRunsFirst()) {

@@ -4,12 +4,11 @@ namespace spec\FeatureScience;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use FeatureScience\Processor;
 
 class ExperimentSpec extends ObjectBehavior
 {
 
-    function let($processor)
+    function let()
     {
         $this->beConstructedWith('foo.bar', [
             'control'   => function(){ usleep(100); return 'control'; },

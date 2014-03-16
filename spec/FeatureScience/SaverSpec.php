@@ -5,13 +5,21 @@ namespace spec\FeatureScience;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use FeatureScience\ApcStorage;
+use FeatureScience\Results;
 use FeatureScience\Experiment;
 
 class SaverSpec extends ObjectBehavior
 {
-    function let(Experiment $experiment, ApcStorage $storage)
+    private $experiment;
+
+    function let(Results $results, ApcStorage $storage)
     {
-        $this->beConstructedWith($experiment, $storage);
+        $this->experiment = new Experiment('foo.bar', [
+            'control'   => null,
+            'candidate' => null
+        ]);
+
+        $this->beConstructedWith($results, $storage);
     }
 
     function it_is_initializable()
@@ -19,8 +27,24 @@ class SaverSpec extends ObjectBehavior
         $this->shouldHaveType('FeatureScience\Saver');
     }
 
-    function it_should_load_and_merge_arrays()
+    function it_should_merge_arrays_and_save_results(Results $results, ApcStorage $storage)
     {
+        $results->getExperiment()->willReturn($this->experiment);
+        $storage->load('foo.bar')->willReturn([
+            'name'    => 'foo.bar',
+            'control' => ['duration' => 0.02]
+        ]);
+        $results->payload()->willReturn([
+            'name'      => 'foo.bar',
+            'candidate' => ['duration' => 0.01]
+        ]);
 
+        $storage->save([
+            'name'      => 'foo.bar',
+            'control'   => ['duration' => 0.02],
+            'candidate' => ['duration' => 0.01],
+        ])->shouldBeCalled();
+
+        $this->save();
     }
 }

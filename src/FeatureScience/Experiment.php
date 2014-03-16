@@ -2,9 +2,6 @@
 
 namespace FeatureScience;
 
-use FeatureScience\Processor;
-use FeatureScience\ProcessorInterface;
-
 class Experiment
 {
 
