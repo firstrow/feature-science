@@ -1,0 +1,24 @@
+{
+    "name": "firstrow/php-science",
+    "description": "A PHP library to measure and validate code changes",
+    "authors": [
+        {
+            "name": "firstrow",
+            "email": "firstrow@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "2.0.*@dev"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-0": {
+            "FeatureScience": "src/"
+        }
+    }
+}
