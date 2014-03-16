@@ -48,9 +48,6 @@ class Experiment
         return $this->executionTime;
     }
 
-    /**
-     * Select subject to measure.
-     */
     protected function getSubject()
     {
         if ($this->isCandidateRunsFirst()) {
