@@ -4,6 +4,7 @@ namespace spec\FeatureScience;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+
 use FeatureScience\ApcStorage;
 use FeatureScience\Results;
 use FeatureScience\Experiment;

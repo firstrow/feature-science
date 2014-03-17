@@ -4,6 +4,7 @@ namespace spec\FeatureScience;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+
 use FeatureScience\Experiment;
 
 class ResultsSpec extends ObjectBehavior
