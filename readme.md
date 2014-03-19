@@ -3,7 +3,7 @@
 A PHP 5.4 library for refactoring, performance and issue testing new/old code in your production projects.
 
 # How to use it?
-For example, let's pretend you're changing caching backend. Next code example will help you to test and compare performance of new code under production.
+For example, let's pretend you're changing caching backend. Next code example will help you to test and compare performance of new code under load.
 
 ```php
 $experiment = new \FeatureScience\Test('cacher.save', [
@@ -26,4 +26,4 @@ TODO
 TODO
 
 ### Links
-Inspired by amazing ruby gem (dat-science)http://
+Inspired by amazing ruby gem [dat-science(https://github.com/github/dat-science)
