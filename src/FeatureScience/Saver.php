@@ -18,7 +18,7 @@ class Saver
 
     public function save()
     {
-        $this->storage->save($this->buildData());
+        $this->storage->save($this->results->getExperiment()->getName(), $this->buildData());
     }
 
     protected function buildData()

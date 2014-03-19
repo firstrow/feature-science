@@ -40,7 +40,7 @@ class SaverSpec extends ObjectBehavior
             'candidate' => ['duration' => 0.01]
         ]);
 
-        $storage->save([
+        $storage->save('foo.bar', [
             'name'      => 'foo.bar',
             'control'   => ['duration' => 0.02],
             'candidate' => ['duration' => 0.01],

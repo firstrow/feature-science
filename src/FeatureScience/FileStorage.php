@@ -29,7 +29,7 @@ class FileStorage implements StorageInterface
         $path = $this->getFullFilePath($key);
 
         if (file_exists($path)) {
-            return file_get_contents($path);
+            return (array) json_decode(file_get_contents($path));
         }
     }
 

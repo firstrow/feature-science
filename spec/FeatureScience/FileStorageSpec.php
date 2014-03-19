@@ -26,7 +26,7 @@ class FileStorageSpec extends ObjectBehavior
 
     function it_should_save_and_load()
     {
-        $this->save('test', array(1,2,3));
-        $this->load('test')->shouldReturn('[1,2,3]');
+        $this->save('test', [1,2,3]);
+        $this->load('test')->shouldReturn([1,2,3]);
     }
 }
