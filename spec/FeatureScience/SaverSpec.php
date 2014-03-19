@@ -5,7 +5,7 @@ namespace spec\FeatureScience;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-use FeatureScience\ApcStorage;
+use FeatureScience\FileStorage;
 use FeatureScience\Results;
 use FeatureScience\Experiment;
 
@@ -13,7 +13,7 @@ class SaverSpec extends ObjectBehavior
 {
     private $experiment;
 
-    function let(Results $results, ApcStorage $storage)
+    function let(Results $results, FileStorage $storage)
     {
         $this->experiment = new Experiment('foo.bar', [
             'control'   => null,
@@ -28,7 +28,7 @@ class SaverSpec extends ObjectBehavior
         $this->shouldHaveType('FeatureScience\Saver');
     }
 
-    function it_should_merge_arrays_and_save_results(Results $results, ApcStorage $storage)
+    function it_should_merge_arrays_and_save_results(Results $results, FileStorage $storage)
     {
         $results->getExperiment()->willReturn($this->experiment);
         $storage->load('foo.bar')->willReturn([
