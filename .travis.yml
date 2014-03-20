@@ -1,0 +1,9 @@
+language: php
+
+php: [5.4, 5.5, hhvm]
+
+before_script:
+  - composer self-update
+  - composer install --dev --prefer-source
+
+script: vendor/bin/phpspec run -fpretty -v
