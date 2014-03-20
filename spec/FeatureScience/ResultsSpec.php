@@ -45,4 +45,16 @@ class ResultsSpec extends ObjectBehavior
             $this->payload()->shouldHaveKey('control');
         }
     }
+
+    function it_sholud_payload_exception()
+    {
+        $this->experiment = new Experiment('test.test', [
+            'control'   => function(){ throw new \Exception('Test'); },
+            'candidate' => function(){ throw new \Exception('Test'); },
+        ]);
+        $this->experiment->run();
+        $this->beConstructedWith($this->experiment);
+
+        $this->buildException()->shouldHaveCount(4);
+    }
 }

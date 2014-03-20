@@ -15,17 +15,37 @@ class Results
     {
         $dataKey = $this->getDataKeyName();
 
-        return [
-            'name'   => $this->experiment->getName(),
-            $dataKey => [
-                'duration' => $this->experiment->getExecutionTime()
-            ]
+        $result = [
+            'name' => $this->experiment->getName()
         ];
+
+        $result[$dataKey] = [
+            'duration'  => $this->experiment->getExecutionTime(),
+            'exception' => $this->buildException()
+        ];
+
+        return $result;
     }
 
     public function getExperiment()
     {
         return $this->experiment;
+    }
+
+    public function buildException()
+    {
+        if (!$this->experiment->hasException()) {
+            return;
+        }
+
+        $e = $this->experiment->getExcepion();
+
+        return [
+            'message' => $e->getMessage(),
+            'code'    => $e->getCode(),
+            'file'    => $e->getFile(),
+            'line'    => $e->getLine()
+        ];
     }
 
     protected function getDataKeyName()
