@@ -31,4 +31,4 @@ TODO
 TODO
 
 ### Links
-Inspired by amazing ruby gem [dat-science(https://github.com/github/dat-science)
+Inspired by amazing ruby gem [dat-science](https://github.com/github/dat-science)
