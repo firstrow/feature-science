@@ -29,11 +29,11 @@ class TestSpec extends ObjectBehavior
     function it_shoud_rethrow_exception()
     {
         $this->beConstructedWith('test.test', [
-            'control'   => function(){ throw new Exception; },
-            'candidate' => function(){ throw new Exception; },
+            'control'   => function(){ throw new \Exception; },
+            'candidate' => function(){ throw new \Exception; },
         ]);
 
-        $this->run()->shouldBeAnInstanceOf('Exception');
+        $this->shouldThrow('Exception')->duringRun();
     }
 
     public function getMatchers()
