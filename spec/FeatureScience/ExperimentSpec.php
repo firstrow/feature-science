@@ -36,6 +36,7 @@ class ExperimentSpec extends ObjectBehavior
     {
         $this->getCandidate()->__invoke()->shouldReturn('candidate');
         $this->getControl()->__invoke()->shouldReturn('control');
+        $this->shouldNotHaveException();
     }
 
     function it_should_run_and_return_expected_result()
@@ -56,6 +57,20 @@ class ExperimentSpec extends ObjectBehavior
             $this->isCandidateRunsFirst()->shouldBe($r);
         }
     }
+
+   function it_should_catch_and_save_exceptions()
+   {
+        $this->beConstructedWith('foo.bar', [
+            'control'   => function(){ throw new \Exception('Test Exception'); },
+            'candidate' => function(){ throw new \Exception('Test Exception'); },
+        ]);
+
+        $this->run();
+        $this->shouldHaveException();
+        $this->getExcepion()->shouldBeAnInstanceOf('Exception');
+        $this->getExcepion()->getMessage()->shouldBe('Test Exception');
+   }
+
 
     public function getMatchers()
     {

@@ -10,6 +10,7 @@ class Experiment
     protected $executionTime;
     protected $subject;
     protected $candidateRunsFirst;
+    protected $exception;
 
     public function __construct($name, $candidates)
     {
@@ -34,11 +35,15 @@ class Experiment
 
     public function run()
     {
-        $start = microtime(true);
+        $result = null;
+        $start  = microtime(true);
 
-        $result = $this->getSubject()->__invoke();
-
-        $this->executionTime = microtime(true) - $start;
+        try {
+            $result = $this->getSubject()->__invoke();
+            $this->executionTime = microtime(true) - $start;
+        } catch (\Exception $e) {
+            $this->exception = $e;
+        }
 
         return $result;
     }
@@ -68,4 +73,13 @@ class Experiment
         return $this->candidateRunsFirst;
     }
 
+    public function getExcepion()
+    {
+        return $this->exception;
+    }
+
+    public function hasException()
+    {
+        return $this->exception !== null;
+    }
 }
