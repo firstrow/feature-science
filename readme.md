@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/firstrow/feature-science.svg?branch=master)](https://travis-ci.org/firstrow/feature-science)
+
 # FeatureScience!
 
 A PHP 5.4 library for refactoring, performance and issue testing new/old code in your production projects.
