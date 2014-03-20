@@ -26,6 +26,16 @@ class TestSpec extends ObjectBehavior
         $this->run()->shouldHaveValues(['control', 'candidate']);
     }
 
+    function it_shoud_rethrow_exception()
+    {
+        $this->beConstructedWith('test.test', [
+            'control'   => function(){ throw new Exception; },
+            'candidate' => function(){ throw new Exception; },
+        ]);
+
+        $this->run()->shouldBeAnInstanceOf('Exception');
+    }
+
     public function getMatchers()
     {
         return [
