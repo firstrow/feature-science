@@ -16,7 +16,7 @@ $experiment->run();
 
 ## How does it works?
 
-`$experiment->run()` will randomly select one of the testing subjects from array, run it and return result. Behind the scenes `Test::run` will collect duration, memmory usage, exceptions of both behaviors and save it to the `storage`.
+`$experiment->run()` will randomly select one of the testing subjects from array, run it and return result. Behind the scenes `Test::run` will collect duration, memory usage, exceptions of both behaviors and save it to the `storage`.
 
 # Configuring
 TODO
