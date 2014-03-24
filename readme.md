@@ -20,10 +20,21 @@ $experiment->run();
 `$experiment->run()` will randomly select one of the testing subjects from array, run it and return result. Behind the scenes `Test::run` will collect duration, memory usage, exceptions of both behaviors and save it to the `storage`.
 
 # Configuring
-TODO
+```php
+use FeatureScience\FileStorage;
+
+// Cofigure results saving storage
+\FeatureScience\DI::set('storage', new FileStorage('/tmp'));
+```
 
 # Viewing results
-TODO
+After your have configured storage backend, you can retrieve results of exeperiment with next small piece of code:
+```php
+$storage = \FeatureScience\DI::get('storage');
+$results = $storage->load('cache.save'); // Will return results array
+
+print_r($results);
+```
 
 # Installation
 TODO
@@ -32,4 +43,4 @@ TODO
 TODO
 
 ### Links
-Inspired by amazing ruby gem [dat-science](https://github.com/github/dat-science)
+Inspired by ruby gem [dat-science](https://github.com/github/dat-science)
