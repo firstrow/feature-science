@@ -42,8 +42,15 @@ vendor/bin/feature-science /path/to/feature.name.json
 # Installation
 TODO
 
-# Performance
-TODO
+# Overhead
+Each benchmark run test code 1000 times.
+
+```
+php benchmarks/clean.php       13.37s
+php benchmarks/experiment.php  13.80s
+```
+
+So, its around +0.4s total execution time for each 1000 requests.
 
 ## Todo
  - Track memory usage
