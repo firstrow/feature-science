@@ -31,6 +31,6 @@ class Test
 
     protected function getStorage()
     {
-        return DI::get('storage', new FileStorage);
+        return DI::get('storage', new ApcStorage);
     }
 }

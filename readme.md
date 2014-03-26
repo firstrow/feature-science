@@ -25,22 +25,23 @@ use FeatureScience\FileStorage;
 
 // Cofigure results saving storage
 \FeatureScience\DI::set('storage', new FileStorage('/tmp'));
+
+\FeatureScience\DI::yaml('storage', new FileStorage('/tmp'));
 ```
 
 # Viewing results
-After your have configured storage backend, you can retrieve results of exeperiment with next small piece of code:
-```php
-$storage = \FeatureScience\DI::get('storage');
-$results = $storage->load('cache.save'); // Will return results array
-
-print_r($results);
-```
+TODO
 
 # Installation
 TODO
 
 # Performance
 TODO
+
+## Todo
+ - Write more storages
+ - Track memory usage
+ - Save min, avg, max duration
 
 ### Links
 Inspired by ruby gem [dat-science](https://github.com/github/dat-science)
