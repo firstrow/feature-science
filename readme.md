@@ -59,8 +59,14 @@ It will look like:
 }
 ```
 
-# Installation
-TODO
+# Installation via Composer
+Add FeatureScience to composer.json and run installation.
+``` json
+"require": {
+    "firstrow/feature-science": "dev-master"
+}
+```
+
 
 # Overhead
 Each benchmark runs test code 1000 times.
