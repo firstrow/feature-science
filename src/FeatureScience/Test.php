@@ -12,22 +12,27 @@ class Test
     {
         $this->name       = $name;
         $this->candidates = $candidates;
+        $this->experiment = new Experiment($this->name, $this->candidates);
     }
 
     public function run()
     {
-        $experiment = new Experiment($this->name, $this->candidates);
-        $return     = $experiment->run();
+        $return = $this->experiment->run();
 
         // Save experiment to temporary storage
-        $saver = new Saver(new Results($experiment), $this->getPayloadSaver(), $this->getStorage());
+        $saver = new Saver(new Results($this->experiment), $this->getPayloadSaver(), $this->getStorage());
         $saver->save();
 
-        if ($experiment->hasException()) {
-            throw $experiment->getExcepion();
+        if ($this->experiment->hasException()) {
+            throw $this->experiment->getExcepion();
         }
 
         return $return;
+    }
+
+    public function setPayloadLimit($limit)
+    {
+        $this->experiment->setPayloadLimit($limit);
     }
 
     protected function getStorage()
