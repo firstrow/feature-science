@@ -62,8 +62,10 @@ It will look like:
 # Installation via Composer
 Add FeatureScience to composer.json and run installation.
 ``` json
-"require": {
-    "firstrow/feature-science": "dev-master"
+{
+    "require": {
+        "firstrow/feature-science": "dev-master"
+    }
 }
 ```
 
