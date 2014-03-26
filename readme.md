@@ -57,5 +57,5 @@ So, its around +0.4s total execution time for each 1000 requests.
  - Save min, avg, max duration
 
 ### Links
-Inspired by ruby gem [dat-science](https://github.com/github/dat-science)
+Inspired by ruby gem [dat-science](https://github.com/github/dat-science)  
 Also, you may find useful [athletic](https://github.com/polyfractal/athletic)
