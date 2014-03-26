@@ -17,18 +17,18 @@ $experiment->run();
 
 ## How does it works?
 
-`$experiment->run()` will randomly select one of the testing subjects from array, run it and return result. Behind the scenes `Test::run` will collect duration, memory usage, exceptions of both behaviors and save it to the `storage`. After 100 execution times, results will be saved by `PayloadSaver` to the specified directory. You can change this limit by calling `$experiment->setPayloadLimit(number).`
+`$experiment->run()` will randomly select one of the testing subjects from array, run it and return result. Behind the scenes `Test::run` will collect duration, memory usage, exceptions of both behaviors and save it to the `storage`.   
+To not load server by writing files each request, FeatureScience will store temporary data in APC storage and after experiment has been run 100 times, will save its results to the specified directory. You can change this limit by calling `$experiment->setPayloadLimit(number).`
 
 # Configuring
-By default `payload.saver` saves results into system temp dir(`sys_get_temp_dir()`).
+By default `payload.saver` saves results into [system temp dir](http://ua1.php.net/sys_get_temp_dir).
 But, you can configure your own path.
 
-**Note:** Remember to make that path writeable to web server.
+**Note:** Remember to make that path writeable by the web server.
 
 ```php
 use FeatureScience\PayloadSaver;
 
-// Cofigure results saving storage
 \FeatureScience\DI::set('payload.saver', new PayloadSaver('/path/to/save/results'));
 ```
 
