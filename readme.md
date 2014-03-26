@@ -17,20 +17,27 @@ $experiment->run();
 
 ## How does it works?
 
-`$experiment->run()` will randomly select one of the testing subjects from array, run it and return result. Behind the scenes `Test::run` will collect duration, memory usage, exceptions of both behaviors and save it to the `storage`.
+`$experiment->run()` will randomly select one of the testing subjects from array, run it and return result. Behind the scenes `Test::run` will collect duration, memory usage, exceptions of both behaviors and save it to the `storage`. After 100 execution times, results will be saved by `PayloadSaver` to the specified directory. You can change this limit by calling `$experiment->setPayloadLimit(number).`
 
 # Configuring
+By default `payload.saver` saves results into system temp dir(`sys_get_temp_dir()`).
+But, you can configure your own path.
+
+**Note:** Remember to make that path writeable to web server.
+
 ```php
-use FeatureScience\FileStorage;
+use FeatureScience\PayloadSaver;
 
 // Cofigure results saving storage
-\FeatureScience\DI::set('storage', new FileStorage('/tmp'));
-
-\FeatureScience\DI::yaml('storage', new FileStorage('/tmp'));
+\FeatureScience\DI::set('payload.saver', new PayloadSaver('/path/to/save/results'));
 ```
 
 # Viewing results
-TODO
+You can view with your favorite editor or by typing command:
+
+``` bash
+vendor/bin/feature-science /path/to/feature.name.json
+```
 
 # Installation
 TODO
@@ -39,7 +46,6 @@ TODO
 TODO
 
 ## Todo
- - Write more storages
  - Track memory usage
  - Save min, avg, max duration
 
