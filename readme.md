@@ -44,17 +44,16 @@ It will look like:
 {
     "name":"array.performance",
     "control":{
-            "duration":0.01359,
-            "exception":null
-        },
-        "candidate":{
-            "duration":0.00261,
-            "exception":{
-                "message": "Someting went wrong",
-                "code": "503",
-                "file": "test.php",
-                "line": "27"
-            }
+        "duration":0.01359,
+        "exception":null
+    },
+    "candidate":{
+        "duration":0.00261,
+        "exception":{
+            "message": "Someting went wrong",
+            "code": "503",
+            "file": "test.php",
+            "line": "27"
         }
     }
 }
