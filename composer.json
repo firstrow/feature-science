@@ -1,6 +1,6 @@
 {
-    "name": "firstrow/php-science",
-    "description": "A PHP library to measure and validate code changes",
+    "name": "firstrow/feature-science",
+    "description": "A PHP library to measure and validate code changes and performance.",
     "authors": [
         {
             "name": "firstrow",
