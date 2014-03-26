@@ -41,7 +41,23 @@ vendor/bin/feature-science /path/to/feature.name.json
 
 It will look like:
 ``` json
-{"name":"array.performance","control":{"duration":0.013590097427368,"exception":null},"candidate":{"duration":0.013612985610962,"exception":null}}
+{
+    "name":"array.performance",
+    "control":{
+            "duration":0.01359,
+            "exception":null
+        },
+        "candidate":{
+            "duration":0.00261,
+            "exception":{
+                "message": "Someting went wrong",
+                "code": "503",
+                "file": "test.php",
+                "line": "27"
+            }
+        }
+    }
+}
 ```
 
 # Installation
