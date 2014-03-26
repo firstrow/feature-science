@@ -12,6 +12,11 @@ class Experiment
     protected $candidateRunsFirst;
     protected $exception;
 
+    /**
+     * How ofter send results to payload storage
+     */
+    protected $payloadLimit = 100;
+
     public function __construct($name, $candidates)
     {
         $this->name       = $name;
@@ -81,5 +86,15 @@ class Experiment
     public function hasException()
     {
         return $this->exception !== null;
+    }
+
+    public function setPayloadLimit($limit)
+    {
+        $this->payloadLimit = $limit;
+    }
+
+    public function getPayloadLimit()
+    {
+        return $this->payloadLimit;
     }
 }

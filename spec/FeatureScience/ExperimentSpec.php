@@ -58,8 +58,8 @@ class ExperimentSpec extends ObjectBehavior
         }
     }
 
-   function it_should_catch_and_save_exceptions()
-   {
+    function it_should_catch_and_save_exceptions()
+    {
         $this->beConstructedWith('foo.bar', [
             'control'   => function(){ throw new \Exception('Test Exception'); },
             'candidate' => function(){ throw new \Exception('Test Exception'); },
@@ -69,8 +69,13 @@ class ExperimentSpec extends ObjectBehavior
         $this->shouldHaveException();
         $this->getExcepion()->shouldBeAnInstanceOf('Exception');
         $this->getExcepion()->getMessage()->shouldBe('Test Exception');
-   }
+    }
 
+    function it_should_have_payload_save_limit()
+    {
+        $this->setPayloadLimit(99);
+        $this->getPayloadLimit()->shouldBe(99);
+    }
 
     public function getMatchers()
     {

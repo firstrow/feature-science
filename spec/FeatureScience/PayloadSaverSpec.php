@@ -4,6 +4,7 @@ namespace spec\FeatureScience;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use FeatureScience\Experiment;
 
 class PayloadSaverSpec extends ObjectBehavior
 {
@@ -24,8 +25,14 @@ class PayloadSaverSpec extends ObjectBehavior
         $this->getFullFilePath('test')->shouldBe('/tmp/test.json');
     }
 
-    function it_should_save_and_load()
+    function it_should_save_experiment()
     {
-        $this->save('test', [1,2,3]);
+        $experiment = new Experiment('foo.bar', [
+            'control'   => function(){},
+            'candidate' => function(){},
+        ]);
+        $experiment->run();
+
+        $this->save('foo.bar', []);
     }
 }

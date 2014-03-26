@@ -19,7 +19,8 @@ class Test
         $experiment = new Experiment($this->name, $this->candidates);
         $return     = $experiment->run();
 
-        $saver      = new Saver(new Results($experiment), $this->getStorage());
+        // Save experiment to temporary storage
+        $saver = new Saver(new Results($experiment), $this->getPayloadSaver(), $this->getStorage());
         $saver->save();
 
         if ($experiment->hasException()) {
@@ -32,5 +33,10 @@ class Test
     protected function getStorage()
     {
         return DI::get('storage', new ApcStorage);
+    }
+
+    protected function getPayloadSaver()
+    {
+        return DI::get('payload.saver', new PayloadSaver);
     }
 }
