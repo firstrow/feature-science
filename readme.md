@@ -39,6 +39,11 @@ You can view with your favorite editor or by typing command:
 vendor/bin/feature-science /path/to/feature.name.json
 ```
 
+It will look like:
+``` json
+{"name":"array.performance","control":{"duration":0.013590097427368,"exception":null},"candidate":{"duration":0.013612985610962,"exception":null}}
+```
+
 # Installation
 TODO
 
