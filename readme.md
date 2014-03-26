@@ -43,7 +43,7 @@ vendor/bin/feature-science /path/to/feature.name.json
 TODO
 
 # Overhead
-Each benchmark run test code 1000 times.
+Each benchmark runs test code 1000 times.
 
 ```
 php benchmarks/clean.php       13.37s
@@ -58,3 +58,4 @@ So, its around +0.4s total execution time for each 1000 requests.
 
 ### Links
 Inspired by ruby gem [dat-science](https://github.com/github/dat-science)
+Also, you may find useful [athletic](https://github.com/polyfractal/athletic)
