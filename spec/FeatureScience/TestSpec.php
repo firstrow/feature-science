@@ -4,12 +4,15 @@ namespace spec\FeatureScience;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use FeatureScience\FileStorage;
 
 class TestSpec extends ObjectBehavior
 {
 
     function let()
     {
+        \FeatureScience\DI::set('storage', new FileStorage);
+
         $this->beConstructedWith('test.test', [
             'control'   => function(){ return 'control'; },
             'candidate' => function(){ return 'candidate'; },
