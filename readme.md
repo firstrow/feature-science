@@ -78,7 +78,7 @@ php benchmarks/clean.php       13.37s
 php benchmarks/experiment.php  13.80s
 ```
 
-So, its around +0.4s total execution time for each 1000 requests.
+So, its around +0.4s total execution time for each 1000 requests or 0.0004ms per one request.
 
 ## Todo
  - Track memory usage
