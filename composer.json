@@ -1,6 +1,6 @@
 {
     "name": "firstrow/feature-science",
-    "description": "A PHP library to measure and validate code changes and performance.",
+    "description": "A PHP 5.4 library to benchmark/refactroing big code changes and performance on production.",
     "authors": [
         {
             "name": "firstrow",
