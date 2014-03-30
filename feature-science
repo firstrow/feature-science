@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+<?php
+
+if (!isset($argv[1])) {
+	exit("Enter file path.\n");
+}
+
+if (!file_exists($argv[1])) {
+	exit("File does not exists.\n");
+}
+
+$contents = file_get_contents($argv[1]);
+
+print_r(json_decode($contents));

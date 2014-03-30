@@ -13,6 +13,9 @@
     "require-dev": {
         "phpspec/phpspec": "2.0.*@dev"
     },
+    "bin": [
+        "feature-science"
+    ],
     "config": {
         "bin-dir": "bin"
     },
