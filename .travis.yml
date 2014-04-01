@@ -9,4 +9,4 @@ before_script:
 script: bin/phpspec run -fpretty -v
 
 after_script:
-  - php vendor/bin/coveralls
+  - php bin/coveralls
