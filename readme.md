@@ -1,5 +1,6 @@
 # FeatureScience!
 [![Build Status](https://travis-ci.org/firstrow/feature-science.svg?branch=master)](https://travis-ci.org/firstrow/feature-science)
+[![Coverage Status](https://coveralls.io/repos/firstrow/feature-science/badge.png)](https://coveralls.io/r/firstrow/feature-science)
 
 A PHP 5.4 library for refactoring, performance and issue testing new/old code in your production projects.
 
