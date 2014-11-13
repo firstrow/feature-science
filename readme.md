@@ -50,7 +50,7 @@ It will look like:
     "candidate":{
         "duration":0.00261,
         "exception":{
-            "message": "Someting went wrong",
+            "message": "Ooops! Something went wrong",
             "code": "503",
             "file": "test.php",
             "line": "27"
